@@ -1,4 +1,4 @@
-package model.element;
+package element;
 
 public enum Interaction { 
 	BLOCKING, PENETRABLE, PICKABLE, KILLER;

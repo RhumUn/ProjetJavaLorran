@@ -1,4 +1,4 @@
-package model.element.Static;
+package element.Static;
 
 public class CornerBone extends Bone {
 	

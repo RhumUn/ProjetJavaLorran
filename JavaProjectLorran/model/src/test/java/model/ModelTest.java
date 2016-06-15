@@ -10,6 +10,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dao.Model;
+
 /**
  * The Class ModelTest.
  *
@@ -60,7 +62,7 @@ public class ModelTest {
 	}
 
 	/**
-	 * Test method for {@link model.Model#getMessage()}.
+	 * Test method for {@link dao.Model#getMessage()}.
 	 */
 	@Test
 	public void testGetMessage() {
@@ -68,7 +70,7 @@ public class ModelTest {
 	}
 
 	/**
-	 * Test method for {@link model.Model#loadMessage(java.lang.String)}.
+	 * Test method for {@link dao.Model#loadMessage(java.lang.String)}.
 	 */
 	@Test
 	public void testGetMessageString() {

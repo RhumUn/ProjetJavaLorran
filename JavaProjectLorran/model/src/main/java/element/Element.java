@@ -1,4 +1,4 @@
-package model.element;
+package element;
 
 public abstract class Element {
 	private int x;

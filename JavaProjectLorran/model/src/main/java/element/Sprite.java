@@ -1,4 +1,4 @@
-package model.element;
+package element;
 
 public class Sprite {
 	
