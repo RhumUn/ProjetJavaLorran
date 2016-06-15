@@ -9,48 +9,38 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class MobileTest {
-
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		System.out.println("avant tout");
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		System.out.println("après tout");
-	}
+	private int x;
+	private int y;
+	Mobile MobileATester;
+	
 
 	@Before
 	public void setUp() throws Exception {
-		System.out.println("avant test");
+		this.MobileATester = new Killer(null);
+		this.x = MobileATester.getX();
+		this.y = MobileATester.getY();
 		
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		System.out.println("après test");
-	}
-
-
-	@Test
-	public void testConditionMouveent() {
-		fail("Not yet implemented");
-	}
 	@Test
 	public void testMoveUp() {
-		fail("Not yet implemented");
+		MobileATester.moveUp();
+		assertEquals(this.y - 1, MobileATester.getY());
 	}
 	@Test
 	public void testMoveDown() {
-		fail("Not yet implemented");
+		MobileATester.moveDown();
+		assertEquals(this.y + 1, MobileATester.getY());
 	}
 	@Test
 	public void testMoveLeft() {
-		fail("Not yet implemented");
+		MobileATester.moveLeft();
+		assertEquals(this.x - 1, MobileATester.getX());
 	}
 	@Test
 	public void testMoveRight() {
-		fail("Not yet implemented");
+		MobileATester.moveRight();
+		assertEquals(this.x + 1, MobileATester.getX());
 	}
 
 }
