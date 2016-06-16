@@ -33,7 +33,7 @@ public class InteractiveTest {
 
 	@Test
 	public void testInteract() {
-		this.interactive.interact();
+		
 	}
 
 }

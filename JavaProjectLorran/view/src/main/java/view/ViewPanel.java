@@ -23,7 +23,7 @@ class ViewPanel extends JPanel implements Observer {
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
 
-	private static String FILE = "C:/Users/asus/Desktop/Projet Java/sprite/horizontal_bone.png";
+	private static String FILE = "C:/Users/asus/git/ProjetJavaLorran/JavaProjectLorran/sprite/horizontal_bone.png";
 	/**
 	 * Instantiates a new view panel.
 	 *
@@ -33,7 +33,7 @@ class ViewPanel extends JPanel implements Observer {
 	public ViewPanel(final ViewFrame viewFrame) {
 		
 		this.setViewFrame(viewFrame);
-		this.setSize(640, 320);
+		this.setSize(700, 400);
 		this.setBackground(Color.BLACK);
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
@@ -76,16 +76,18 @@ class ViewPanel extends JPanel implements Observer {
 		
 		BufferedImage img = null;
 		try {
+			graphics.setColor(Color.BLACK);
+			graphics.fillRect(0, 0, 800, 400);
 		    img = ImageIO.read(new File(FILE));
-		    for (int x = 0; x < this.getHeight(); x = x+ 32){
-		    	for (int y = 0; y < this.getWidth(); y = y + 32)
+		    for (int x = 32; x < 640; x = x+ 32){
+		    	for (int y = 32; y < 352; y = y + 32){
 		    		graphics.drawImage(img, x, y, this);
+		    	}
 		    }
 		} catch (IOException e) {
 		}
-		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
-		graphics.setColor(Color.BLACK);
-		//graphics.fillRect(0, 0, 640, 352);
+		//graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+
 		
 		//graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
 	}
