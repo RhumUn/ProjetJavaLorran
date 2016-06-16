@@ -9,9 +9,4 @@ public abstract class MulticolorSpell implements KillerStrategy {
 	
 	private MulticolorSpell() {
 	}
-	
-	public void changeColor(SpellColor color) {
-	}
-	
-
 }

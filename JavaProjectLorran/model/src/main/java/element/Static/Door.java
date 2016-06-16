@@ -4,6 +4,5 @@ public class Door extends Interactive{
 	
 	public Door() {
 	}
-	
 
 }
