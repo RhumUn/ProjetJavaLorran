@@ -1,8 +1,9 @@
 package element.Static;
 
-public class Gold extends Interactive{
+public class Gold extends Interactive {
 	
-	public Gold() {
+	public Gold(){
+		super();
 	}
 	
 

@@ -3,6 +3,7 @@ package element;
 public abstract class Element {
 	private int x;
 	private int y;
+	Interaction interaction;
 	
 	public Element(){
 		
@@ -16,13 +17,14 @@ public abstract class Element {
 		
 	}
 	
-	public void getPermeability(){
-		
+	public Interaction getInteraction() {
+		return interaction;
 	}
-	
-	public void setPermeability() {
+
+	public void setInteraction(Interaction interaction) {
+		this.interaction = interaction;
 	}
-	
+
 	public void getImage(){
 		
 	}
