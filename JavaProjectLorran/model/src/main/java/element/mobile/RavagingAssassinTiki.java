@@ -1,6 +1,10 @@
 package element.mobile;
 
-public abstract class RavagingAssassinTiki implements KillerStrategy {
+import java.io.File;
+
+public abstract class RavagingAssassinTiki extends Killer implements KillerStrategy {
+	
+	private static File MONSTER = new File(FILE + "gate_open.png");
 
 	public void IA() {
 		// TODO Auto-generated method stub
@@ -8,6 +12,7 @@ public abstract class RavagingAssassinTiki implements KillerStrategy {
 	}
 	
 	public RavagingAssassinTiki() {
+		super(MONSTER);
 	}
 	
 

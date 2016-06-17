@@ -1,32 +1,30 @@
 package element;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import contract.IElement;
 
-public abstract class Element {
+import javax.imageio.ImageIO;
+
+public abstract class Element implements IElement{
 	private int x;
 	private int y;
+	BufferedImage image;
 	Interaction interaction;
-	private char tag;
+	protected static String FILE = "C:/Users/asus/git/ProjetJavaLorran/JavaProjectLorran/sprite/";
 	private File sprite;
 	
-	public Element(File SPRITE, char TEXT_TAG) {
+	public Element(File SPRITE) {
 		this.sprite = SPRITE;
-		this.tag = TEXT_TAG;
-		
 	}
 
 	public void setSprite(File sprite) {
 		this.sprite = sprite;
 	}
 
-	public char getTag() {
-		return tag;
-	}
-
-	public void setTag(char tag) {
-		this.tag = tag;
-	}
-	
 	public Interaction getInteraction() {
 		return interaction;
 	}
@@ -35,7 +33,8 @@ public abstract class Element {
 		this.interaction = interaction;
 	}
 
-	public void getImage(){
-		
+	public BufferedImage getImage() throws IOException{
+		this.image = ImageIO.read(this.sprite);
+		return this.image;
 	}
 }

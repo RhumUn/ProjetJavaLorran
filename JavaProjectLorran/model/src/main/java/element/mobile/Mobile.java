@@ -1,11 +1,14 @@
 package element.mobile;
 
+import java.io.File;
+
 import element.Element;
-import element.Sprite;
+
 
 public abstract class Mobile extends Element {
 	
-	public Mobile(Sprite sprite) {
+	public Mobile(File sprite) {
+		super(sprite);
 	}
 	
 	public void moveUp() {

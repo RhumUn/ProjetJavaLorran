@@ -10,7 +10,7 @@ import contract.IModel;
  *
  * @author Jean-Aymeric Diet
  */
-public class Model extends Observable implements IModel {
+public class Model extends Observable {
 
 	/** The message. */
 	private String message;

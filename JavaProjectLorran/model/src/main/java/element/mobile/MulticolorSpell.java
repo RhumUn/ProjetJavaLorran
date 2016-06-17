@@ -1,6 +1,10 @@
 package element.mobile;
 
-public abstract class MulticolorSpell implements KillerStrategy {
+import java.io.File;
+
+public abstract class MulticolorSpell extends Killer implements KillerStrategy {
+	
+	private static File FIREBALL = new File(FILE + "fireball.gif");
 
 	public void IA() {
 		// TODO Auto-generated method stub
@@ -8,10 +12,7 @@ public abstract class MulticolorSpell implements KillerStrategy {
 	}
 	
 	private MulticolorSpell() {
+		super(FIREBALL);
 	}
-	
-	public void changeColor(SpellColor color) {
-	}
-	
 
 }

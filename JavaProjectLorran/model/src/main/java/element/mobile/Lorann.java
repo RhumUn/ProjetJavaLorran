@@ -1,12 +1,14 @@
 package element.mobile;
 
-import element.Sprite;
+import java.io.File;
+
 
 public abstract class Lorann extends Mobile {
 
-	public Lorann(Sprite sprite) {
-		super(sprite);
-		// TODO Auto-generated constructor stub
+	private static File LORANN = new File(FILE + "gate_open.png");
+	
+	public Lorann() {
+		super(LORANN);
 	}
 	
 	public void spellCast() {

@@ -59,12 +59,17 @@ public class Controller implements IController {
 		this.model = model;
 	}
 
+	public void orderPerform(ControllerOrder controllerOrder) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	public void orderPerform(final ControllerOrder controllerOrder) {
+	/*public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case English:
 				this.model.loadMessage("GB");
@@ -82,6 +87,6 @@ public class Controller implements IController {
 			default:
 				break;
 		}
-	}
+	}*/
 
 }

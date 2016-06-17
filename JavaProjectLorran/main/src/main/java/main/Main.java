@@ -1,7 +1,11 @@
 package main;
 
+import java.awt.HeadlessException;
+import java.io.IOException;
+
 import controller.Controller;
 import dao.Model;
+import lorannWorld.LorannWorld;
 import view.View;
 
 /**
@@ -16,9 +20,11 @@ public abstract class Main {
 	 *
 	 * @param args
 	 *          the arguments
+	 * @throws IOException 
+	 * @throws HeadlessException 
 	 */
-	public static void main(final String[] args) {
-		final Model model = new Model();
+	public static void main(final String[] args) throws HeadlessException, IOException {
+		final LorannWorld model = new LorannWorld();
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);

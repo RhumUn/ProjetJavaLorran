@@ -1,9 +1,13 @@
 package element.Static;
 
+import java.io.File;
+
 public class CrystalBall extends Interactive{
 	
-	public CrystalBall() {
-	}
+	private static File CRYSTAL_BALL = new File(FILE + "crystal_ball.png");
 	
+	public CrystalBall() {
+		super(CRYSTAL_BALL);
+	}
 
 }

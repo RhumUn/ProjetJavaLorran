@@ -11,6 +11,9 @@ import java.util.Observer;
 import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
+import contract.IElement;
+import contract.IModel;
+
 /**
  * The Class ViewPanel.
  *
@@ -19,22 +22,28 @@ import javax.swing.JPanel;
 class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
-	private ViewFrame					viewFrame;
+	private ViewFrame viewFrame;
+
 	/** The Constant serialVersionUID. */
-	private static final long	serialVersionUID	= -998294702363713521L;
+	private static final long serialVersionUID = -998294702363713521L;
+
+	private IModel world;
 
 	private static String FILE = "C:/Users/asus/git/ProjetJavaLorran/JavaProjectLorran/sprite/horizontal_bone.png";
+
 	/**
 	 * Instantiates a new view panel.
 	 *
 	 * @param viewFrame
-	 *          the view frame
+	 *            the view frame
+	 * @throws IOException
 	 */
-	public ViewPanel(final ViewFrame viewFrame) {
-		
+	public ViewPanel(final ViewFrame viewFrame, IModel model) throws IOException {
+		this.world = model;
 		this.setViewFrame(viewFrame);
-		this.setSize(700, 400);
+		this.setSize(700, 520);
 		this.setBackground(Color.BLACK);
+		// System.out.println(world.getElement(1, 1).getImage());
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
 
@@ -51,7 +60,7 @@ class ViewPanel extends JPanel implements Observer {
 	 * Sets the view frame.
 	 *
 	 * @param viewFrame
-	 *          the new view frame
+	 *            the new view frame
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
 		this.viewFrame = viewFrame;
@@ -73,22 +82,26 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-		
+
 		BufferedImage img = null;
 		try {
 			graphics.setColor(Color.BLACK);
-			graphics.fillRect(0, 0, 800, 400);
-		    img = ImageIO.read(new File(FILE));
-		    for (int x = 32; x < 640; x = x+ 32){
-		    	for (int y = 32; y < 352; y = y + 32){
-		    		graphics.drawImage(img, x, y, this);
-		    	}
-		    }
+			graphics.fillRect(0, 0, 800, 520);
+			img = ImageIO.read(new File(FILE));
+
+			for (int x = 32; x < 672; x = x + 32) {
+				for (int y = 32; y < 416; y = y + 32) {
+					if (world.getElement((x / 32) - 1, (y / 32) - 1) != null) {
+						graphics.drawImage(world.getElement((x / 32) - 1, (y / 32) - 1).getImage(), x, y, this);
+					}
+				}
+
+			}
 		} catch (IOException e) {
 		}
-		//graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
+		// graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 
-		
-		//graphics.drawString(this.getViewFrame().getModel().getMessage(), 10, 20);
+		// graphics.drawString(this.getViewFrame().getModel().getMessage(), 10,
+		// 20);
 	}
 }
