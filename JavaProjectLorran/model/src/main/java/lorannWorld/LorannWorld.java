@@ -41,7 +41,6 @@ public class LorannWorld extends Observable implements IModel{
 			break;
 		
 		default:
-			
 			break;
 		}
 	}
@@ -50,7 +49,7 @@ public class LorannWorld extends Observable implements IModel{
 	public void generateLevel() throws IOException {
 		char c;
 
-		File f = new File ("C:/Users/asus/Desktop/lorann/cryptes/salle011.txt");
+		File f = new File ("C:/Users/asus/Desktop/lorann/cryptes/salle001.txt");
 		FileReader fr = new FileReader(f);
 		for (int y = 0; y < 13; y++){
 			for (int x = 0; x < 21; x++){
@@ -59,7 +58,7 @@ public class LorannWorld extends Observable implements IModel{
 					c = (char) fr.read();
 				}
 				else {
-					addElement(x, y, c);
+					this.addElement(x, y, c);
 				}
 			}
 		}

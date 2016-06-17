@@ -82,20 +82,17 @@ class ViewPanel extends JPanel implements Observer {
 	 */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
-
-		BufferedImage img = null;
+		
 		try {
 			graphics.setColor(Color.BLACK);
 			graphics.fillRect(0, 0, 800, 520);
-			img = ImageIO.read(new File(FILE));
-
 			for (int x = 32; x < 672; x = x + 32) {
 				for (int y = 32; y < 416; y = y + 32) {
 					if (world.getElement((x / 32) - 1, (y / 32) - 1) != null) {
+						//graphics.drawImage(ImageIO.read(new File("C:/Users/asus/Desktop/Projet Java/sprite/bone.png")), x, y, this);
 						graphics.drawImage(world.getElement((x / 32) - 1, (y / 32) - 1).getImage(), x, y, this);
 					}
 				}
-
 			}
 		} catch (IOException e) {
 		}

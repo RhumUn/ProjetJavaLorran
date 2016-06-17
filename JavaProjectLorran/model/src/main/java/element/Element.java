@@ -14,7 +14,7 @@ public abstract class Element implements IElement{
 	private int y;
 	BufferedImage image;
 	Interaction interaction;
-	protected static String FILE = "C:/Users/asus/git/ProjetJavaLorran/JavaProjectLorran/sprite/";
+	protected static String FILE = "C:/Users/asus/Desktop/Projet Java/sprite/";
 	private File sprite;
 	
 	public Element(File SPRITE) {
