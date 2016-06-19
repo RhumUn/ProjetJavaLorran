@@ -6,19 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import contract.IElement;
+import contract.Interaction;
 
 import javax.imageio.ImageIO;
 
 public abstract class Element implements IElement{
-	private int x;
-	private int y;
+	
 	BufferedImage image;
 	Interaction interaction;
 	protected static String FILE = "C:/Users/asus/Desktop/Projet Java/sprite/";
 	private File sprite;
 	
-	public Element(File SPRITE) {
+	public Element(File SPRITE, Interaction INTERACTION) {
 		this.sprite = SPRITE;
+		this.interaction = INTERACTION;
 	}
 
 	public void setSprite(File sprite) {

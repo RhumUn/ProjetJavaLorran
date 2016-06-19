@@ -29,8 +29,6 @@ class ViewPanel extends JPanel implements Observer {
 
 	private IModel world;
 
-	private static String FILE = "C:/Users/asus/git/ProjetJavaLorran/JavaProjectLorran/sprite/horizontal_bone.png";
-
 	/**
 	 * Instantiates a new view panel.
 	 *

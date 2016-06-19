@@ -6,4 +6,6 @@ import java.io.IOException;
 
 public interface IElement {
 	public BufferedImage getImage() throws IOException;
+	
+	public Interaction getInteraction();
 }

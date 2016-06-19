@@ -24,10 +24,12 @@ public abstract class Main {
 	 * @throws HeadlessException 
 	 */
 	public static void main(final String[] args) throws HeadlessException, IOException {
+
 		final LorannWorld model = new LorannWorld();
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
-		controller.control();
+		controller.gameLoop();
+
 	}
 }

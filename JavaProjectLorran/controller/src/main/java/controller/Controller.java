@@ -1,9 +1,15 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.Hashtable;
+
 import contract.ControllerOrder;
 import contract.IController;
+import contract.IElement;
+import contract.IMobile;
 import contract.IModel;
 import contract.IView;
+import contract.Interaction;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -12,22 +18,24 @@ import contract.IView;
 public class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
+	private Hashtable<String, IMobile> mobiles;
 
 	/** The model. */
-	private IModel	model;
+	private IModel model;
 
 	/**
 	 * Instantiates a new controller.
 	 *
 	 * @param view
-	 *          the view
+	 *            the view
 	 * @param model
-	 *          the model
+	 *            the model
 	 */
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.mobiles = model.getMobiles();
 	}
 
 	/*
@@ -36,14 +44,15 @@ public class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage(
+				"Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
 	}
 
 	/**
 	 * Sets the view.
 	 *
 	 * @param view
-	 *          the new view
+	 *            the new view
 	 */
 	private void setView(final IView view) {
 		this.view = view;
@@ -53,15 +62,10 @@ public class Controller implements IController {
 	 * Sets the model.
 	 *
 	 * @param model
-	 *          the new model
+	 *            the new model
 	 */
 	private void setModel(final IModel model) {
 		this.model = model;
-	}
-
-	public void orderPerform(ControllerOrder controllerOrder) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	/*
@@ -69,24 +73,82 @@ public class Controller implements IController {
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
-	/*public void orderPerform(final ControllerOrder controllerOrder) {
+	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
-				this.model.loadMessage("GB");
-				break;
-			case Francais:
-				this.model.loadMessage("FR");
-				break;
-			case Deutsch:
-				this.model.loadMessage("DE");
-				break;
-			case Indonesia:
-				this.model.loadMessage("ID");
-				break;
+		case DOWN:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX(), this.mobiles.get("Lorann").getY() + 1) == true)   {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveDown();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case UP:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX(), this.mobiles.get("Lorann").getY() - 1) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveUp();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case LEFT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() - 1, this.mobiles.get("Lorann").getY()) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveLeft();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case RIGHT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() + 1, this.mobiles.get("Lorann").getY()) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveRight();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case UP_RIGHT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() + 1, this.mobiles.get("Lorann").getY() - 1) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveUp();
+				this.mobiles.get("Lorann").moveRight();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case UP_LEFT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() - 1, this.mobiles.get("Lorann").getY() - 1) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveUp();
+				this.mobiles.get("Lorann").moveLeft();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case DOWN_LEFT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() - 1, this.mobiles.get("Lorann").getY() + 1) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveDown();
+				this.mobiles.get("Lorann").moveLeft();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
+		case DOWN_RIGHT:
+			if (this.model.isMovePossible(this.mobiles.get("Lorann").getX() + 1, this.mobiles.get("Lorann").getY() + 1) == true) {
+				this.mobiles.get("Lorann").savePosition();
+				this.mobiles.get("Lorann").moveDown();
+				this.mobiles.get("Lorann").moveRight();
+				this.setMobileHasChanged(this.mobiles.get("Lorann"));
+			}
+			break;
 
-			default:
-				break;
+		default:
+			break;
 		}
-	}*/
+	}
+	
+	public void setMobileHasChanged(IMobile mobile){
+		this.model.removeElement(mobile.getSavedX(), mobile.getSavedY());
+		this.model.setElements(mobile.getX(), mobile.getY(), mobile);
+		
+	}
+	
+	public void gameLoop(){
+		this.mobiles.get("GrumpyScreamer");
+	}
 
 }

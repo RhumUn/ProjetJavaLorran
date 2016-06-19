@@ -2,19 +2,22 @@ package element.mobile;
 
 import java.io.File;
 
-public class Killer extends Mobile {
-	
-	private KillerStrategy Killerstrategy;
+import contract.IKiller;
+import contract.Interaction;
 
-	public Killer(File sprite) {
-		super(sprite);
-		// TODO Auto-generated constructor stub
-	}
+public class Killer extends Mobile implements IKiller{
 	
+	private KillerStrategy killerstrategy;
+
+	public Killer(File sprite, int x, int y, Interaction interaction) {
+		super(sprite, x, y, interaction);
+	}
+
 	public void kill() {
 	}
 	
 	public void executeStrategy() {
+		this.killerstrategy.IA();
 	}
 	
 

@@ -1,9 +1,10 @@
 package contract;
 
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Observable;
 
-import org.w3c.dom.Entity;
+import contract.IMobile;
 
 /**
  * The Interface IModel.
@@ -13,9 +14,19 @@ import org.w3c.dom.Entity;
 public interface IModel{
 	public IElement getElement(int x, int y);
 	
+	public IMobile getMobile(IMobile mobile);
+	
+	public boolean isMovePossible(int x, int y);
+	
+	public void removeElement(int x, int y);
+	
 	public void addElement(int x, int y, char textTag);
 	
+	public void setElements(int x, int y, IMobile mobile);
+	
 	public void generateLevel() throws IOException;
+	
+	public Hashtable<String, IMobile> getMobiles();
 
 	public Observable getObservable();
 }

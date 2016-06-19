@@ -2,13 +2,16 @@ package element.mobile;
 
 import java.io.File;
 
+import contract.Interaction;
 
-public abstract class Lorann extends Mobile {
 
-	private static File LORANN = new File(FILE + "gate_open.png");
+public class Lorann extends Mobile {
+
+	private static File LORANN = new File(FILE + "lorann_br.png");
+	private static Interaction INTERACTION = Interaction.BLOCKING;
 	
-	public Lorann() {
-		super(LORANN);
+	public Lorann(int x, int y) {
+		super(LORANN, x, y, INTERACTION);
 	}
 	
 	public void spellCast() {

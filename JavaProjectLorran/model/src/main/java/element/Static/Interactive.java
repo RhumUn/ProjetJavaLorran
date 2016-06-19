@@ -2,12 +2,12 @@ package element.Static;
 
 import java.io.File;
 
-import element.Interaction;
+import contract.Interaction;
 
 public abstract class Interactive extends Static {
 	
-	public Interactive(File sprite) {
-		super(sprite);
+	public Interactive(File sprite, Interaction interaction) {
+		super(sprite, interaction);
 	}
 	
 	public void interact(Interaction interaction){

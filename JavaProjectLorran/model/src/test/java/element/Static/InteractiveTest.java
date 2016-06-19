@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import element.Interaction;
+import contract.Interaction;
 
 public class InteractiveTest {
 	
