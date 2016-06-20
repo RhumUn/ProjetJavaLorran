@@ -92,7 +92,7 @@ public class LorannWorld extends Observable implements IModel{
 	public void generateLevel() throws IOException {
 		char c;
 
-		File f = new File ("C:/Users/asus/Desktop/lorann/cryptes/salle004.txt");
+		File f = new File ("C:/Users/Judicaël/Desktop/cryptes/salle004.txt");
 		FileReader fr = new FileReader(f);
 		for (int y = 0; y < 13; y++){
 			for (int x = 0; x < 21; x++){
@@ -131,7 +131,7 @@ public class LorannWorld extends Observable implements IModel{
 		else {
 			if (this.getElement(x, y).getInteraction() != Interaction.BLOCKING){
 				if(this.getElement(x, y).getInteraction() == Interaction.KILLER){
-					((Element) this.mobiles.get("Lorann")).setSprite(new File("C:/Users/asus/Desktop/Projet Java/sprite/death.png"));
+					((Element) this.mobiles.get("Lorann")).setSprite(new File("C:/Users/Judicaël/Desktop/sprite/death.png"));
 					setChanged();
 					notifyObservers();
 					return false;

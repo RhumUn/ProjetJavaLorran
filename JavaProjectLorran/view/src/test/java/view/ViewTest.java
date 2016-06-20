@@ -2,49 +2,53 @@ package view;
 
 import static org.junit.Assert.*;
 
+import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Observable;
 
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.w3c.dom.Entity;
 
+import contract.ControllerOrder;
 import contract.IElement;
+import contract.IMobile;
 import contract.IModel;
 
 public class ViewTest {
-private View view;
-	/*@BeforeClass
+	private static View view;
+	
+	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-	}
-
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
-
-	@Before
-	public void setUp() throws Exception {
-		this.view = new View(new IModel() {
-			public void loadMessage(String key) {
-			}
-			
-			public Observable getObservable() {
-				return new Observable();
-			}
-			
-			public String getMessage() {
-				return "Coucou";
-			}
+		view = new View (new IModel(){
 
 			public IElement getElement(int x, int y) {
 				// TODO Auto-generated method stub
 				return null;
 			}
 
+			public IMobile getMobile(IMobile mobile) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			public boolean isMovePossible(int x, int y) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			public void removeElement(int x, int y) {
+				// TODO Auto-generated method stub
+				
+			}
+
 			public void addElement(int x, int y, char textTag) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			public void setElements(int x, int y, IMobile mobile) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -54,20 +58,29 @@ private View view;
 				
 			}
 
-			public IElement[][] getElement() {
+			public Hashtable<String, IMobile> getMobiles() {
 				// TODO Auto-generated method stub
 				return null;
 			}
+
+			public Observable getObservable() {
+				// TODO Auto-generated method stub
+				return new Observable();
+			}
+			
 		});
 	}
 
-	@After
-	public void tearDown() throws Exception {
+	@Before
+	public void setUp() throws Exception {
 	}
 
+	@SuppressWarnings("static-access")
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void testKeyCodeToControllerOrder() {
+		int key = KeyEvent.VK_NUMPAD6;
+		assertEquals(ControllerOrder.RIGHT,this.view.keyCodeToControllerOrder(key));
+	
 	}
-*/
+
 }

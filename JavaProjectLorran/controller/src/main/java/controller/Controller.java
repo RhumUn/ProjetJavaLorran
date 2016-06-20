@@ -1,15 +1,15 @@
 package controller;
 
-import java.util.ArrayList;
+
 import java.util.Hashtable;
 
 import contract.ControllerOrder;
 import contract.IController;
-import contract.IElement;
+
 import contract.IMobile;
 import contract.IModel;
 import contract.IView;
-import contract.Interaction;
+
 
 // TODO: Auto-generated Javadoc
 /**
@@ -18,6 +18,7 @@ import contract.Interaction;
 public class Controller implements IController {
 
 	/** The view. */
+	@SuppressWarnings("unused")
 	private IView view;
 	private Hashtable<String, IMobile> mobiles;
 
@@ -43,10 +44,7 @@ public class Controller implements IController {
 	 * 
 	 * @see contract.IController#control()
 	 */
-	public void control() {
-		this.view.printMessage(
-				"Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
-	}
+
 
 	/**
 	 * Sets the view.
@@ -149,6 +147,11 @@ public class Controller implements IController {
 	
 	public void gameLoop(){
 		this.mobiles.get("GrumpyScreamer");
+	}
+
+	public void control() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
