@@ -29,4 +29,8 @@ public interface IModel{
 	public Hashtable<String, IMobile> getMobiles();
 
 	public Observable getObservable();
+	
+	public int getScore();
+
+	public void setScore(int score);
 }

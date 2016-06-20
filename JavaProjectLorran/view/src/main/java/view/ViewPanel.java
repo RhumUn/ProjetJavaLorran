@@ -1,6 +1,8 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -9,7 +11,10 @@ import java.util.Observable;
 import java.util.Observer;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JToolBar;
+import javax.swing.border.Border;
 
 import contract.IElement;
 import contract.IModel;
@@ -23,6 +28,10 @@ class ViewPanel extends JPanel implements Observer {
 
 	/** The view frame. */
 	private ViewFrame viewFrame;
+	private int score;
+	
+	JToolBar scoreBar = new JToolBar();
+	JLabel label = new JLabel("Score : ");
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = -998294702363713521L;
@@ -41,6 +50,10 @@ class ViewPanel extends JPanel implements Observer {
 		this.setViewFrame(viewFrame);
 		this.setSize(700, 520);
 		this.setBackground(Color.BLACK);
+		this.setLayout(new BorderLayout());
+		scoreBar.setPreferredSize(new Dimension(700, 20));
+		scoreBar.add(label);
+        this.add(scoreBar, BorderLayout.SOUTH);
 		// System.out.println(world.getElement(1, 1).getImage());
 		viewFrame.getModel().getObservable().addObserver(this);
 	}
@@ -84,6 +97,8 @@ class ViewPanel extends JPanel implements Observer {
 		try {
 			graphics.setColor(Color.BLACK);
 			graphics.fillRect(0, 0, 800, 520);
+			this.score = this.world.getScore();
+			this.label.setText("Score : " + this.score);
 			for (int x = 32; x < 672; x = x + 32) {
 				for (int y = 32; y < 416; y = y + 32) {
 					if (world.getElement((x / 32) - 1, (y / 32) - 1) != null) {

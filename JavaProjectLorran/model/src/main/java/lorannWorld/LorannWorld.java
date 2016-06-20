@@ -26,9 +26,10 @@ public class LorannWorld extends Observable implements IModel{
 	private Element element;
 	private int xDoor;
 	private int yDoor;
+	private int score = 0;
 
 	Hashtable<String, IMobile> mobiles;
-	private int score = 0;
+
 
 
 	public LorannWorld() throws IOException {
@@ -142,8 +143,7 @@ public class LorannWorld extends Observable implements IModel{
 					}
 					setChanged();
 					notifyObservers();
-					this.score = score + 100;
-					System.out.println(score);
+					this.score = score + 150;
 				}
 				return true;
 			}
@@ -181,5 +181,15 @@ public class LorannWorld extends Observable implements IModel{
     public void setElement(int x, int y, Element element) {
 		this.elements[x][y] = element;
 	}
+
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+    
 	
 }
