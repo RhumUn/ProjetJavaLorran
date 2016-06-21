@@ -1,7 +1,5 @@
 package lorannWorld;
 
-import static org.junit.Assert.*;
-
 import java.io.IOException;
 
 import org.junit.After;
@@ -10,9 +8,11 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import dao.Model;
+
 public class LorannWorldTest {
 	
-	private LorannWorld world;
+	private Model world;
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -24,7 +24,7 @@ public class LorannWorldTest {
 
 	@Before
 	public void setUp() throws Exception {
-		this.world = new LorannWorld();
+		this.world = new Model();
 		
 	}
 

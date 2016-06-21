@@ -1,13 +1,14 @@
 package view;
 
-import java.awt.Color;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import contract.IController;
@@ -27,6 +28,8 @@ class ViewFrame extends JFrame implements KeyListener {
 	private IController				controller;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -697358409737458175L;
+	
+    JLabel label = new JLabel(new ImageIcon("C:/Users/asus/Desktop/Projet Java/sprit/lorann.gif"));
 
 	/**
 	 * Instantiates a new view frame.
@@ -149,7 +152,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 *          the message
 	 */
 	public void printMessage(final String message) {
-		//JOptionPane.showMessageDialog(null, message);
+		JOptionPane.showMessageDialog(null, message);
 	}
 
 	/*
@@ -167,7 +170,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 * @see java.awt.event.KeyListener#keyPressed(java.awt.event.KeyEvent)
 	 */
 	public void keyPressed(final KeyEvent e) {
-		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()), "Lorann");
 	}
 
 	/*

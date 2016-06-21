@@ -2,19 +2,18 @@ package element;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import contract.IElement;
-import contract.Interaction;
 
 import javax.imageio.ImageIO;
+
+import contract.IElement;
+import contract.Interaction;
 
 public abstract class Element implements IElement{
 	
 	BufferedImage image;
 	Interaction interaction;
-	protected static String FILE = "C:/Users/asus/Desktop/Projet Java/sprite/";
+	protected static String FILE = "/sprites/";
 	private File sprite;
 	
 	public Element(File SPRITE, Interaction INTERACTION) {

@@ -23,4 +23,14 @@ public interface IMobile {
 	public int getSavedX();
 	
 	public int getSavedY();
+	
+	public boolean isWinning();
+
+	public void setWinning(boolean winning);
+	
+	public boolean isDead();
+
+	public void setDead(boolean dead);
+	
+	public String getName();
 }

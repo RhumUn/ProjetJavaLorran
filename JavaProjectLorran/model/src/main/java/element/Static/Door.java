@@ -3,20 +3,21 @@ package element.Static;
 import java.io.File;
 
 import contract.Interaction;
+import dao.Model;
 
 public class Door extends Interactive{
 	
-	private static File DOOR_OPEN = new File(FILE + "gate_open.png");
-	private static File DOOR_CLOSED = new File(FILE + "gate_closed.png");
-	private static boolean isDoorOpen;
-	private static Interaction INTERACTION = Interaction.KILLER;
-	private File DOOR = DOOR_CLOSED;
+
+	private static File DOOR_OPEN = new File(Model.class.getResource(FILE + "gate_open.png").getFile());
+	private static File DOOR_CLOSED = new File(Model.class.getResource(FILE + "gate_closed.png").getFile());
 	
+	private static Interaction INTERACTION_CLOSED = Interaction.KILLER;
+	private static Interaction INTERACTION_OPEN = Interaction.END;
 	public Door() {
-		super(DOOR_CLOSED, INTERACTION);
+		super(DOOR_CLOSED, INTERACTION_CLOSED);
 	}
 	
 	public Door(boolean open){
-		super(DOOR_OPEN, INTERACTION);
+		super(DOOR_OPEN, INTERACTION_OPEN);
 	}
 }

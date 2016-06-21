@@ -1,5 +1,5 @@
 package contract;
 
 public enum Interaction { 
-	BLOCKING, PENETRABLE, PICKABLE, KILLER;
+	BLOCKING, PICKABLE, KILLER, VICTIM, END, MONSTER_KILLER, NOP;
 }

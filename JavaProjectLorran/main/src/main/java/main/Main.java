@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import controller.Controller;
 import dao.Model;
-import lorannWorld.LorannWorld;
 import view.View;
 
 /**
@@ -22,14 +21,19 @@ public abstract class Main {
 	 *          the arguments
 	 * @throws IOException 
 	 * @throws HeadlessException 
+	 * @throws InterruptedException 
 	 */
-	public static void main(final String[] args) throws HeadlessException, IOException {
+	public static void main(final String[] args) throws HeadlessException, IOException, InterruptedException {
+		int i = 0;
 
-		final LorannWorld model = new LorannWorld();
+		final Model model = new Model();
 		final View view = new View(model);
 		final Controller controller = new Controller(view, model);
 		view.setController(controller);
-		controller.gameLoop();
+		while (i == 0){
+			controller.gameLoop();
+		}
+
 
 	}
 }

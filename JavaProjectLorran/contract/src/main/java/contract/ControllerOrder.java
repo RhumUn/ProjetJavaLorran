@@ -14,6 +14,12 @@ public enum ControllerOrder {
 	UP_LEFT,
 	UP_RIGHT,
 	DOWN_LEFT,
-	DOWN_RIGHT
+	DOWN_RIGHT,
+	FIRE, 
+	NOP;
 	
+
+    public static ControllerOrder getRandom() {
+        return values()[(int) (Math.random() * values().length)];
+    }
 }

@@ -4,19 +4,12 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
-
-import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
-import javax.swing.border.Border;
-
-import contract.IElement;
 import contract.IModel;
 
 /**
@@ -26,8 +19,6 @@ import contract.IModel;
  */
 class ViewPanel extends JPanel implements Observer {
 
-	/** The view frame. */
-	private ViewFrame viewFrame;
 	private int score;
 	
 	JToolBar scoreBar = new JToolBar();
@@ -59,22 +50,12 @@ class ViewPanel extends JPanel implements Observer {
 	}
 
 	/**
-	 * Gets the view frame.
-	 *
-	 * @return the view frame
-	 */
-	private ViewFrame getViewFrame() {
-		return this.viewFrame;
-	}
-
-	/**
 	 * Sets the view frame.
 	 *
 	 * @param viewFrame
 	 *            the new view frame
 	 */
 	private void setViewFrame(final ViewFrame viewFrame) {
-		this.viewFrame = viewFrame;
 	}
 
 	/*
@@ -102,7 +83,6 @@ class ViewPanel extends JPanel implements Observer {
 			for (int x = 32; x < 672; x = x + 32) {
 				for (int y = 32; y < 416; y = y + 32) {
 					if (world.getElement((x / 32) - 1, (y / 32) - 1) != null) {
-						//graphics.drawImage(ImageIO.read(new File("C:/Users/asus/Desktop/Projet Java/sprite/bone.png")), x, y, this);
 						graphics.drawImage(world.getElement((x / 32) - 1, (y / 32) - 1).getImage(), x, y, this);
 					}
 				}

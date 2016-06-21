@@ -16,7 +16,7 @@ public interface IModel{
 	
 	public IMobile getMobile(IMobile mobile);
 	
-	public boolean isMovePossible(int x, int y);
+	public boolean isMovePossible(int x, int y, IMobile mobile);
 	
 	public void removeElement(int x, int y);
 	

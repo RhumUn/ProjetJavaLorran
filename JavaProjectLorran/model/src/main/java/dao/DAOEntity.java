@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -44,7 +45,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the entity
 	 * @return true, if successful
 	 */
-	public abstract boolean create(E entity);
+	public abstract boolean create(LorannWorld entity);
 
 	/**
 	 * Delete.
@@ -71,15 +72,6 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the id
 	 * @return the e
 	 */
-	public abstract E find(int id);
-
-	/**
-	 * Find.
-	 *
-	 * @param key
-	 *          the key
-	 * @return the e
-	 */
-	public abstract E find(String key);
+	public abstract ResultSet find(int id);
 
 }
